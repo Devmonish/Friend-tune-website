@@ -1,2 +1,13 @@
 /** @type {import('next').NextConfig} */
-module.exports = { reactStrictMode: true }
+const nextConfig = {
+  reactStrictMode: true,
+  output: 'export',
+  basePath: '/Friend-tune-website',
+  trailingSlash: true,
+
+  images: {
+    unoptimized: true,
+  },
+};
+
+module.exports = nextConfig;

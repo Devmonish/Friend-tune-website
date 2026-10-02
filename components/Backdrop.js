@@ -37,3 +37,9 @@ export default function Backdrop({ kind = 'petals', emojis }) {
     </div>
   )
 }
+
+
+
+
+
+
