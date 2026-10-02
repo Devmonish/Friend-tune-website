@@ -1,5 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
+import { sitePath } from './sitePath'
 
 const EMOJI = ['✨', '💖', '🌸', '⭐', '🌷']
 
@@ -94,9 +95,24 @@ export default function TiltPhoto({
     >
       <div className={`relative overflow-hidden bg-blush ${round ? 'rounded-full' : 'rounded-xl'} ${aspect}`}>
         {video ? (
-          <video ref={vid} src={video} poster={poster} muted loop playsInline preload="metadata" className="h-full w-full object-cover" />
+          <video
+            ref={vid}
+            src={sitePath(video)}
+            poster={poster ? sitePath(poster) : undefined}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-cover"
+          />
         ) : (
-          <img src={src} alt={alt} loading="lazy" draggable={false} className="h-full w-full object-cover" />
+         <img
+            src={sitePath(src)}
+            alt={alt}
+            loading="lazy"
+            draggable={false}
+            className="h-full w-full object-cover"
+          />
         )}
         <div className="shine pointer-events-none absolute inset-0" />
         {video && !playing && (
@@ -112,3 +128,9 @@ export default function TiltPhoto({
     </figure>
   )
 }
+
+
+
+
+
+

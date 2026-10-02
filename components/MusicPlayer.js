@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
+import { sitePath } from './sitePath'
 
 export default function MusicPlayer() {
   const audio = useRef(null)
@@ -49,7 +50,12 @@ export default function MusicPlayer() {
 
   return (
     <>
-      <audio ref={audio} src="/audio/bgm.mp3" loop preload="auto" />
+      <audio
+        ref={audio}
+        src={sitePath('/audio/bgm.mp3')}
+        loop
+        preload="auto"
+      />
 
       {needsTap && (
         <button
@@ -75,3 +81,9 @@ export default function MusicPlayer() {
     </>
   )
 }
+
+
+
+
+
+
